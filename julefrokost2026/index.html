@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Julefrokost 2026</title>
+  <meta name="description" content="Fjorten retter. Ti kuverter. Ingen nåde. Premiere lørdag 7. november 2026 kl. 14.00 i Herning.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#2b0308">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Julefrokost 2026">
+  <meta property="og:description" content="Fjorten retter. Ti kuverter. Ingen nåde. Premiere lørdag 7. november kl. 14.00 i Herning.">
+  <meta property="og:url" content="https://persusgaard.dk/julefrokost2026/">
+  <meta property="og:image" content="https://persusgaard.dk/julefrokost2026/assets/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="da_DK">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/frikadelle.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/ikon-180.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
+  <link rel="stylesheet" href="julefrokost.css">
+  <link rel="preload" href="assets/cinzel-black.typeface.json" as="fetch" crossorigin>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body class="indlaeser">
+  <canvas id="scene3d" aria-hidden="true"></canvas>
+  <div class="snemand-moenster" aria-hidden="true"></div>
+  <canvas id="regn" aria-hidden="true"></canvas>
+  <div class="vignet" aria-hidden="true"></div>
+  <div class="korn" aria-hidden="true"></div>
+
+  <!-- Velourtæppet -->
+  <div id="gate">
+    <div class="taeppe taeppe--v" aria-hidden="true"></div>
+    <div class="taeppe taeppe--h" aria-hidden="true"></div>
+    <div class="kappe" aria-hidden="true"></div>
+    <div class="gate__indhold">
+      <p class="gate__over">persusgaard.dk præsenterer</p>
+      <button class="billet-knap" id="start" disabled>
+        <span class="billet-knap__top">Julefrokost 2026</span>
+        <span class="billet-knap__cta">Tryk for at begynde</span>
+        <span class="billet-knap__status" id="status">Varmer frikadellerne · 0 %</span>
+      </button>
+      <p class="gate__lyd">Skru op for lyden</p>
+    </div>
+  </div>
+
+  <!-- Introsekvensen -->
+  <div id="intro" aria-hidden="true">
+    <div class="logo logo--lange">
+      <div class="lys"><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="lange">
+        <span class="lange__navn">Slagter Lange</span>
+        <span class="lange__pictures">Pictures</span>
+      </p>
+    </div>
+    <div class="logo logo--per">
+      <img src="assets/per-logo.png" alt="" width="180" height="180">
+      <p>En Per Susgaard produktion</p>
+    </div>
+    <div class="logo logo--mamma">
+      <svg class="segl" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <path id="seglbue" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/>
+          <linearGradient id="seglguld" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#fbe6a6"/><stop offset=".45" stop-color="#d9a547"/>
+            <stop offset=".55" stop-color="#9a6420"/><stop offset="1" stop-color="#f3d07f"/>
+          </linearGradient>
+        </defs>
+        <circle cx="100" cy="100" r="96" fill="url(#seglguld)"/>
+        <circle cx="100" cy="100" r="88" fill="none" stroke="#5a3a0e" stroke-width="1.5" stroke-dasharray="2 4"/>
+        <circle cx="100" cy="100" r="58" fill="#7a0e1a" stroke="#5a3a0e" stroke-width="2"/>
+        <text font-family="Cinzel" font-weight="700" font-size="15" letter-spacing="3" fill="#3a2506">
+          <textPath href="#seglbue">GODKENDT AF MAMMA · KVALITETSSIKRET ·</textPath>
+        </text>
+        <text x="100" y="122" text-anchor="middle" font-family="Cinzel" font-weight="900" font-size="64" fill="url(#seglguld)">M</text>
+      </svg>
+      <p>Mamma Entertainment</p>
+    </div>
+    <div class="trailer">
+      <p>I en verden…</p>
+      <p>hvor sild ikke længere er nok…</p>
+      <p>bestiller ti kuverter…</p>
+      <p>fjorten retter.</p>
+      <p>Den 7. november…</p>
+      <p>bliver det personligt.</p>
+    </div>
+    <div class="blitz"></div>
+    <button class="spring" id="spring">Spring introen over</button>
+  </div>
+
+  <!-- Fast navigation -->
+  <div class="filmstrimmel" aria-hidden="true"><div class="filmstrimmel__fyld"></div></div>
+  <header class="hud">
+    <a class="hud__hjem" href="/">persusgaard.dk</a>
+    <button class="hud__lyd" id="lyd" aria-pressed="true">
+      <span class="lydbjaelker" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span class="hud__lydtekst">Lyd til</span>
+    </button>
+  </header>
+  <p class="scene-skilt" aria-hidden="true"><span id="scene-nr">Scene 1</span><span id="scene-navn">Premieren</span></p>
+
+  <main>
+    <section id="premiere" class="hero" data-tema="sne" data-scene="Premieren">
+      <div class="hero__klaeb">
+        <h1 class="sr-only">Julefrokost 2026</h1>
+        <p class="hero__fallback guldtekst" aria-hidden="true">Julefrokost<br>2026</p>
+        <div class="hero__bund">
+          <p class="hero__dato">Lørdag 7. november <span class="hero__tid">kl. 14.00</span></p>
+          <p class="hero__sted">Gudenåvej 106, 7400 Herning</p>
+          <p class="hero__tagline">Fjorten retter. Ti kuverter. Ingen nåde.</p>
+          <p class="hero__rul"><span>Rul ned</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="historien" class="historie" data-tema="sne" data-scene="Baseret på en sand historie">
+      <div class="historie__klaeb">
+        <div class="historie__billede">
+          <img src="assets/crew-1280.jpg"
+               srcset="assets/crew-1280.jpg 1280w, assets/crew-2400.jpg 2400w"
+               sizes="(orientation: portrait) 260vh, 100vw"
+               width="2400" height="1600"
+               alt="Fællesbillede fra en tidligere julefrokost. Fra venstre: Andreas, Jannick, Morten, Marcus, Bøjgaard, Mamma, Patrick, Rasmus, Botha, Lasse og Per.">
+        </div>
+        <div class="letterbox letterbox--top" aria-hidden="true"></div>
+        <div class="letterbox letterbox--bund" aria-hidden="true"></div>
+        <div class="historie__tekst">
+          <h2 class="historie__titel">Baseret på en sand historie</h2>
+          <p>Optaget ved en tidligere julefrokost. Ingen stuntmænd, kun stunt-snaps.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="medvirkende" class="medvirkende" data-tema="guld" data-scene="Medvirkende">
+      <div class="indre">
+        <h2 class="sektionstitel guldtekst">Medvirkende</h2>
+        <p class="ingress">Elleve legender og én buffet. Tryk på et kort for at vende det.</p>
+        <div id="mamma"></div>
+        <div class="rolleliste" id="rolleliste"></div>
+      </div>
+    </section>
+
+    <section id="program" class="program" data-tema="guld" data-scene="Aftenens program">
+      <div class="menukort" id="menukort">
+        <p class="menukort__ornament" aria-hidden="true">❦</p>
+        <h2 class="menukort__titel">Aftenens program</h2>
+        <p class="menukort__under">Leveret af Slagter Lange. En trilogi i tre akter og en finale.</p>
+        <div id="programliste"></div>
+        <p class="menukort__ornament" aria-hidden="true">❦</p>
+      </div>
+    </section>
+
+    <div id="akter"></div>
+
+    <section id="finale" class="finale" data-tema="sne" data-scene="Finalen">
+      <div class="akt__titel">
+        <p class="akt__nr">Finale</p>
+        <h2 class="akt__navn guldtekst">Ris a la mande</h2>
+        <p class="akt__under">Én mandel. Ti kuverter. Kun én vinder.</p>
+      </div>
+      <div id="finaleret"></div>
+      <div class="spil" id="spil">
+        <h3 class="spil__titel">Kampen om mandelgaven</h3>
+        <p class="spil__instruks" id="spil-instruks">Mandlen falder ned i én af skålene. Hold øje med den, mens skålene bliver blandet, og tryk så på den rigtige.</p>
+        <div class="spil__bord" id="spil-bord"></div>
+        <div class="spil__bund">
+          <button class="knap" id="spil-start">Bland skålene</button>
+          <p class="spil__score" id="spil-score" aria-live="polite">Forsøg: 0 · Mandelgaver: 0</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="regnskab" class="regnskab" data-tema="data" data-scene="Årsrapporten">
+      <div class="ticker" aria-hidden="true"><div class="ticker__baand" id="ticker"></div></div>
+      <div class="indre">
+        <h2 class="sektionstitel guldtekst">Årsrapport 2026</h2>
+        <p class="ingress">Julefrokost A/S fremlægger regnskabet. Revideret af ingen.</p>
+        <div class="noegletal">
+          <div class="noegletal__hoved">
+            <p class="tal" data-taeller="3770" data-suffiks=" kr">0 kr</p>
+            <p class="tal__label">Samlet investering inkl. fragt</p>
+          </div>
+          <div class="noegletal__raekke">
+            <div><p class="tal tal--lille" data-taeller="377" data-suffiks=" kr">0 kr</p><p class="tal__label">Pr. kuvert</p></div>
+            <div><p class="tal tal--lille" data-taeller="26.93" data-decimaler="2" data-suffiks=" kr">0 kr</p><p class="tal__label">Pr. ret pr. kuvert</p></div>
+            <div><p class="tal tal--lille" data-taeller="350" data-suffiks=" kr">0 kr</p><p class="tal__label">Logistik, også kaldet fragt</p></div>
+            <div><p class="tal tal--lille" data-taeller="754" data-suffiks=" kr">0 kr</p><p class="tal__label">Moms til statskassen</p></div>
+          </div>
+        </div>
+        <div class="diagrammer">
+          <figure class="diagram" id="donut"></figure>
+          <figure class="diagram" id="stemning"></figure>
+        </div>
+        <p class="afkast">Forventet afkast: <strong class="guldtekst">uvurderligt</strong></p>
+      </div>
+    </section>
+
+    <section id="nedtaelling" class="nedtaelling" data-tema="sne" data-scene="Nedtællingen">
+      <div class="indre">
+        <h2 class="sektionstitel guldtekst">T-minus</h2>
+        <div class="ur" id="ur" role="timer" aria-live="off">
+          <div><p class="ur__tal" id="ur-d">00</p><p class="ur__label">dage</p></div>
+          <div><p class="ur__tal" id="ur-t">00</p><p class="ur__label">timer</p></div>
+          <div><p class="ur__tal" id="ur-m">00</p><p class="ur__label">minutter</p></div>
+          <div><p class="ur__tal" id="ur-s">00</p><p class="ur__label">sekunder</p></div>
+        </div>
+        <p class="ingress" id="ur-tekst">Til dørene åbner lørdag 7. november kl. 14.00 på Gudenåvej 106, 7400 Herning.</p>
+        <div class="tjek">
+          <h3 class="tjek__titel">Klar til opsendelse</h3>
+          <ul class="tjek__liste" id="tjekliste"></ul>
+          <p class="tjek__knapper">
+            <button class="knap knap--diskret" id="kalender">Sæt i kalenderen</button>
+            <a class="knap knap--diskret" href="https://www.google.com/maps/search/?api=1&amp;query=Guden%C3%A5vej%20106%2C%207400%20Herning" target="_blank" rel="noopener">Find vej</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="billet" class="billet" data-tema="guld" data-scene="Din billet">
+      <div class="indre">
+        <h2 class="sektionstitel guldtekst">Din billet</h2>
+        <p class="ingress">Skriv dit navn, så trykker vi din personlige adgangsbillet til premieren.</p>
+        <form class="billet__form" id="billet-form">
+          <label for="billet-navn">Dit navn</label>
+          <div class="billet__felt">
+            <input id="billet-navn" name="navn" maxlength="24" autocomplete="given-name" placeholder="Fx Bøjgaard" required>
+            <button class="knap" type="submit">Tryk billetten</button>
+          </div>
+        </form>
+        <div class="billet__visning" id="billet-visning" hidden>
+          <canvas id="billet-canvas" width="1600" height="720" aria-label="Din personlige billet"></canvas>
+          <div class="billet__knapper">
+            <button class="knap" id="billet-del">Del billetten</button>
+            <button class="knap knap--diskret" id="billet-gem">Gem billetten</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="rulletekster" class="rulletekster" data-tema="sne" data-scene="Rulletekster">
+      <div class="rulletekster__klaeb">
+        <div class="rulle" id="rulle"></div>
+      </div>
+    </section>
+
+    <section id="efterscene" class="efterscene" data-tema="glod" data-scene="Efter rulleteksterne">
+      <p class="efterscene__lille">Du blev siddende. Godt.</p>
+      <h2 class="efterscene__titel guldtekst">Julefrokost 2027</h2>
+      <p class="ingress">Kommer snart. Mamma har allerede en plan.</p>
+      <p class="efterscene__links">
+        <button class="knap knap--diskret" id="forfra">Se det hele igen</button>
+        <a class="knap knap--diskret" href="/">Til persusgaard.dk</a>
+      </p>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="markoer" aria-hidden="true"><i class="markoer__prik"></i><i class="markoer__ring"></i></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
