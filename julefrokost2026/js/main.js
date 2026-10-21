@@ -1,7 +1,7 @@
 import { lyd } from './lyd.js';
 import { PREMIERE, MAMMA, MEDVIRKENDE, statsFor, STATS, AKTER, RISALAMANDE, TJEKLISTE } from './data.js';
 import { initRegnskab } from './regnskab.js';
-import { startSpil } from './spil.js';
+import { startPakkeleg } from './pakkeleg.js';
 import { startBillet } from './billet.js';
 import * as regn from './regn.js';
 
@@ -105,7 +105,9 @@ function bygIndhold() {
   $('#programliste').innerHTML = AKTER.map((akt) => `
     <div class="menukort__akt"><h3>Akt ${akt.nr}: ${akt.navn}</h3>
       <ol>${akt.retter.map((r) => `<li><a href="#ret-${++nr}">${r.navn}</a></li>`).join('')}</ol></div>`).join('') + `
-    <div class="menukort__akt"><h3>Finale</h3><ol><li><a href="#ret-14">${RISALAMANDE.navn}</a></li></ol></div>`;
+    <div class="menukort__akt"><h3>Finale</h3><ol><li><a href="#ret-14">${RISALAMANDE.navn}</a></li></ol></div>
+    <div class="menukort__akt"><h3>Efter desserten</h3><ol><li><a href="#pakkeleg">Pakkelegen</a></li></ol>
+      <p class="menukort__pakke">Medbring én pakke til 50 kr. Må gerne overskrides.</p></div>`;
 
   $('#tjekliste').innerHTML = TJEKLISTE.map(([tekst, klar], i) => `
     <li><label><input type="checkbox" data-i="${i}" ${klar ? 'checked' : ''}><span>${tekst}</span></label></li>`).join('');
@@ -115,7 +117,7 @@ function bygIndhold() {
     ['<p class="rulle__stor guldtekst">Julefrokost 2026</p>'],
     ['Medvirkende', [['Executive Producer', 'Mamma'], ...MEDVIRKENDE.map((p) => [p.rolle, p.navn])]],
     ['Bag kameraet', [['Instruktør', 'Per Susgaard'], ['Location', 'Gudenåvej 106, Herning'], ['Catering', 'Slagter Lange'], ['Lyddesign', 'En browser'], ['Visuelle effekter', 'Unødvendigt mange'], ['Budget', '3.770 kr']]],
-    ['Retterne', [['Silden', 'Sig selv'], ['Frikadellerne', 'Små, hjemmelavede'], ['Sylten', 'Kontroversiel'], ['Grønlangkålen', 'Som salat'], ['Mandlen', 'Ukendt']]],
+    ['Retterne', [['Silden', 'Sig selv'], ['Frikadellerne', 'Små, hjemmelavede'], ['Sylten', 'Kontroversiel'], ['Grønlangkålen', 'Som salat'], ['Pakkerne', 'Mindst 50 kr stykket']]],
     ['Tak til', [['Statskassen', 'For 754 kr i moms'], ['Rugbrødet', 'For fundamentet'], ['Dig', 'For at blive siddende']]],
     ['<p class="rulle__note">Ingen sild kom til skade under produktionen af denne hjemmeside. Det kommer de til den 7. november.</p>'],
   ];
@@ -474,7 +476,7 @@ function opsaetNedtaelling() {
       'BEGIN:VEVENT', 'UID:julefrokost-2026@persusgaard.dk', 'DTSTAMP:20261021T120000Z',
       'DTSTART:20261107T130000Z', 'DTEND:20261108T010000Z', 'SUMMARY:Julefrokost 2026',
       'LOCATION:Gudenåvej 106\\, 7400 Herning',
-      'DESCRIPTION:Fjorten retter. Ti kuverter. Ingen nåde. https://persusgaard.dk/julefrokost2026/',
+      'DESCRIPTION:Fjorten retter. Ti kuverter. Ingen nåde. Husk en pakke til pakkelegen (50 kr\\, må gerne overskrides). https://persusgaard.dk/julefrokost2026/',
       'URL:https://persusgaard.dk/julefrokost2026/', 'END:VEVENT', 'END:VCALENDAR',
     ].join('\r\n');
     const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
@@ -570,6 +572,6 @@ opsaetNedtaelling();
 opsaetPaaskeaeg();
 opsaetMarkoer();
 initRegnskab({ gsap, ScrollTrigger, lyd });
-startSpil({ gsap, lyd, regn, toast });
+startPakkeleg({ gsap, lyd, regn, toast });
 startBillet({ gsap, lyd, toast });
 indlaes();

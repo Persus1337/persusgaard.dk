@@ -173,17 +173,30 @@
       <div class="akt__titel">
         <p class="akt__nr">Finale</p>
         <h2 class="akt__navn guldtekst">Ris a la mande</h2>
-        <p class="akt__under">Én mandel. Ti kuverter. Kun én vinder.</p>
+        <p class="akt__under">Ris, fløde og kirsebærsauce. Og så er der pakker.</p>
       </div>
       <div id="finaleret"></div>
-      <div class="spil" id="spil">
-        <h3 class="spil__titel">Kampen om mandelgaven</h3>
-        <p class="spil__instruks" id="spil-instruks">Mandlen falder ned i én af skålene. Hold øje med den, mens skålene bliver blandet, og tryk så på den rigtige.</p>
-        <div class="spil__bord" id="spil-bord"></div>
-        <div class="spil__bund">
-          <button class="knap" id="spil-start">Bland skålene</button>
-          <p class="spil__score" id="spil-score" aria-live="polite">Forsøg: 0 · Mandelgaver: 0</p>
-        </div>
+    </section>
+
+    <section id="pakkeleg" class="pakkeleg" data-tema="glod" data-scene="Pakkelegen">
+      <div class="akt__titel">
+        <p class="akt__nr">Efter desserten</p>
+        <h2 class="akt__navn guldtekst" style="--tegn:11">Pakkelegen</h2>
+        <p class="akt__under">Én terning. Ti pakker. Venskaber sat på prøve.</p>
+      </div>
+      <div class="gavemaerke">
+        <p class="gavemaerke__til">Til: dig</p>
+        <h3 class="gavemaerke__titel">Husk en pakke</h3>
+        <p class="gavemaerke__budget"><span>Budget</span> 50 kr</p>
+        <p class="gavemaerke__note">Må gerne overskrides. Det bliver bemærket og husket.</p>
+      </div>
+      <div class="terningspil">
+        <p class="terningspil__instruks" id="pakke-status" aria-live="polite">Slå en sekser for at tage en pakke fra bordet.</p>
+        <div class="terning-scene"><div class="terning" id="terning" aria-hidden="true"></div></div>
+        <button class="knap" id="slaa">Slå med terningen</button>
+        <p class="terningspil__score" id="pakke-score">Slag: 0 · Seksere: 0</p>
+        <div class="pakkebord" id="pakkebord"></div>
+        <ul class="vundet" id="vundet" aria-label="Dine pakker"></ul>
       </div>
     </section>
 

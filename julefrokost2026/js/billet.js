@@ -96,7 +96,13 @@ export async function tegnBillet(canvas, navn) {
 
   ctx.fillStyle = ink;
   ctx.font = 'italic 400 38px "Cormorant Garamond"';
-  ctx.fillText(`Kuvert ${kuvert} af 10 · ${plads}`, stubX / 2, 590);
+  ctx.fillText(`Kuvert ${kuvert} af 10 · ${plads}`, stubX / 2, 580);
+  ctx.font = '700 22px Cinzel';
+  ctx.letterSpacing = '4px';
+  ctx.fillStyle = velour;
+  ctx.fillText('HUSK EN PAKKE TIL PAKKELEGEN · 50 KR', stubX / 2, 636);
+  ctx.letterSpacing = '0px';
+  ctx.fillStyle = ink;
 
   // Stub
   const sx = stubX + (W - stubX) / 2;

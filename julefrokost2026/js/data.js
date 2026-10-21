@@ -71,8 +71,8 @@ export const AKTER = [
 
 export const RISALAMANDE = {
   navn: 'Ris a la mande', med: 'med kirsebærsauce',
-  note: 'Finalen. Én mandel, ti kuverter og kun én vinder. Venskaber er sat på spil for mindre.',
-  snaps: 'Kaffe og cognac, mens mandelgaven diskuteres.',
+  note: 'Finalen. Kold, cremet og serveret lige før pakkelegen, hvor venskaber bliver sat på prøve.',
+  snaps: 'Kaffe og cognac. Man skal have kræfter til pakkelegen.',
   stats: [65, 5, 100, 30],
 };
 
@@ -87,6 +87,7 @@ export const TJEKLISTE = [
   ['Menu bestilt hos Slagter Lange', true],
   ['Mamma informeret', true],
   ['Hjemmeside overdrevet', true],
+  ['Pakke til pakkelegen købt (50 kr)', false],
   ['Snaps i fryseren', false],
   ['Bukser med elastik fundet frem', false],
   ['Sangtekster printet', false],
