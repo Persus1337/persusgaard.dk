@@ -83,7 +83,7 @@ function bygIndhold() {
           <span class="kort__navn">${p.navn}</span>
           <span class="kort__replik">“${p.replik}”</span>
           <span class="kort__evne">Særlig evne: ${p.evne}</span>
-          ${statsHTML(statsFor(p.id))}
+          ${statsHTML(statsFor(p.statsFra || p.id))}
         </span>
       </button>
     </article>`).join('');
