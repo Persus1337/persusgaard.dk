@@ -165,7 +165,7 @@ export function startBillet({ gsap, lyd, toast }) {
     const blob = await tilBlob();
     const fil = new File([blob], filnavn(), { type: 'image/png' });
     if (navigator.canShare?.({ files: [fil] })) {
-      try { await navigator.share({ files: [fil], title: 'Julefrokost 2026', text: 'Jeg har min billet. persusgaard.dk/julefrokost2026' }); }
+      try { await navigator.share({ files: [fil], title: 'Julefrokost 2026', text: 'Jeg har min billet. Ti fingre er klar.' }); }
       catch { /* brugeren lukkede delingen */ }
     } else {
       hent(blob);

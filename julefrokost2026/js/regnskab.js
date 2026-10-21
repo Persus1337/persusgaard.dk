@@ -109,7 +109,7 @@ function tegnDonut(fig) {
     <tr><td>Fragt</td><td>${kr(fragt)} kr</td></tr>
     <tr><td>Total</td><td>${kr(total)} kr</td></tr>
     <tr><td>Heraf moms</td><td>${kr(REGNSKAB.moms)} kr</td></tr>
-    <tr><td>Pr. person, delt på ${REGNSKAB.personer}</td><td>${kr(total / REGNSKAB.personer, 2)} kr</td></tr></table></details>`);
+    <tr><td>Pr. person</td><td>${kr(total / REGNSKAB.personer, 2)} kr</td></tr></table></details>`);
 
   return (gsap) => buer.forEach(({ c, laengde, omkreds: o }, i) => {
     const s = { l: 0 };

@@ -12,16 +12,16 @@ export const MAMMA = {
 };
 
 export const MEDVIRKENDE = [
-  { id: 'andreas', navn: 'Andreas', rolle: 'Diplomaten', replik: 'Kan få sild og laks til at sidde ved samme bord.', evne: 'Mægler, når debatten om sylte bliver personlig.' },
-  { id: 'jannick', navn: 'Jannick', rolle: 'Bordeaux-baronen', replik: 'Kom i vinrødt. Går hjem i vinrødt.', evne: 'Matcher sit jakkesæt til rødkålen.' },
-  { id: 'morten', navn: 'Morten', rolle: 'Underholdningschefen', replik: 'Står altid for underholdningen. Om man vil det eller ej.', evne: 'Har en sang, en tale og en konkurrence klar. Hvert år.' },
-  { id: 'marcus', navn: 'Marcus', rolle: 'Snemanden', replik: 'Han kom ikke for at deltage. Han kom for at vinde.', evne: 'Kan ses fra rummet.' },
-  { id: 'bojgaard', navn: 'Bøjgaard', rolle: 'Latteren', replik: 'Griner først. Forstår joken bagefter.', evne: 'Kan høres tre lokaler væk.', statsFra: 'botha' },
-  { id: 'patrick', navn: 'Patrick', rolle: 'Gentlemanden', replik: 'Vest, slips og nul fejltrin.', evne: 'Kan ikke folde servietter til svaner. Til gengæld er han rigtig dårlig til det.' },
-  { id: 'rasmus', navn: 'Rasmus', rolle: 'Smilet i baggrunden', replik: 'Altid lidt bagved. Altid i godt humør.', evne: 'Dukker op på samtlige billeder.' },
-  { id: 'botha', navn: 'Botha', rolle: 'Legenden', replik: 'Kun kendt ved efternavn. Som alle de store.', evne: 'Kan alle versene. Også dem, ingen andre kan.', statsFra: 'bojgaard' },
-  { id: 'lasse', navn: 'Lasse', rolle: 'Den beige fare', replik: 'Rolig i jakken. Lynhurtig ved buffeten.', evne: 'Altid først ved ris a la manden.' },
-  { id: 'per', navn: 'Per', rolle: 'Instruktøren', replik: 'Byggede denne hjemmeside. Undskylder intet.', evne: 'Skyder gråspurve med kanoner.' },
+  { id: 'andreas', navn: 'Andreas', rolle: 'Jack-manden', replik: 'Drikker Jack fra solen står op, til den står op igen.', evne: 'Har ikke set en solnedgang ædru siden 2019.' },
+  { id: 'jannick', navn: 'Jannick', rolle: 'Bygherren', replik: 'Ægte søn af Mamma. Går aldrig hjem.', evne: 'Har bygget et helt hus kun til julefrokosten. Tak for det.' },
+  { id: 'morten', navn: 'Morten', rolle: 'Quizmasteren', replik: 'Står for underholdningen. Den består af én quiz.', evne: 'Quizzen er pervers og grafisk. Ingen vinder, alle taber lidt af sig selv.' },
+  { id: 'marcus', navn: 'Marcus', rolle: 'Snemanden', replik: 'Ægte barnebarn af Mamma. Kom for at vinde.', evne: 'Vinder alt undtagen computerspil. Der er han elendig.' },
+  { id: 'bojgaard', navn: 'Bøjgaard', rolle: 'Den nøgne sandhed', replik: 'Smider tøjet efter … nej. Han smider bare tøjet.', evne: 'Griner først og klæder sig af bagefter. Kan høres og ses tre lokaler væk.', statsFra: 'botha' },
+  { id: 'patrick', navn: 'Patrick', rolle: 'Gentlemanden', replik: 'Vest, slips og nul fejltrin. Tager nok ikke sin PC med.', evne: 'Kan ikke folde servietter til svaner. Til gengæld er han rigtig dårlig til det.' },
+  { id: 'rasmus', navn: 'Rasmus', rolle: 'Nikkedukken', replik: 'Smiler og nikker, som om han forstår, hvad du siger.', evne: 'Fortsætter med at nikke længe efter, at du har mistet evnen til at tale.' },
+  { id: 'botha', navn: 'Botha', rolle: 'Legenden', replik: 'Kun kendt ved efternavn. Som alle de store.', evne: 'Kan alle versene. Også de sjofle, ingen andre tør synge.', statsFra: 'bojgaard' },
+  { id: 'lasse', navn: 'Lasse', rolle: 'Pakkehorderen', replik: 'Hamstrer pakker som et egern med et alvorligt problem.', evne: 'Smiler bredt trods alle skavankerne. Ingen ved, hvordan.' },
+  { id: 'per', navn: 'Per', rolle: 'Instruktøren', replik: 'Byggede denne side. Kommer for sent til sin egen premiere.', evne: 'Skyder gråspurve med kanoner. Typisk et kvarter forsinket.' },
 ];
 
 export const STATNAVNE = ['Snapsudholdenhed', 'Sangstemme', 'Sildetolerance'];

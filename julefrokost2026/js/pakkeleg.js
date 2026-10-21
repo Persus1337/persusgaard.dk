@@ -6,10 +6,11 @@ const FARVER = [
   ['#5b1a3a', '#e7b95c'], ['#b01c2e', '#f6f0e4'], ['#2f4a2c', '#e7b95c'], ['#8e5e1e', '#f6f0e4'], ['#0d2a3a', '#e7b95c'], ['#e7b95c', '#1f5a35'],
 ];
 const INDHOLD = [
-  'Uldsokker i str. 46', 'Et skrabelod uden gevinst', 'En lille Gammel Dansk', 'Et duftlys med “vinterbær”',
-  'Gavekort til Slagter Lange på 50 kr', 'En flaske kirsebærsauce', 'En tom æske. Ren symbolik.',
-  'Et brætspil med manglende brikker', 'Noget, der tydeligvis kostede 200 kr', 'Fem frikadeller i sølvpapir',
-  'En julesweater i str. XS', 'Lakridskonfekt med ukendt udløbsdato', 'En øloplukker med flaskeåbner-funktion',
+  'Spiselige trusser med ris a la mande-smag', 'Glidecreme i juleedition. Kanel og nelliker.',
+  'En pebermølle formet som en pik', 'Kondomer med smag af sylte', 'Et pornoblad fra 1994 med klistrede sider',
+  'En butt plug med julestjerne på', 'Håndjern i rød plys med bjælder', 'Bøjgaards underbukser. Han smed dem tidligere.',
+  'Pikformede lakridser i gaveæske', 'En oppustelig nissepige, der allerede er punkteret',
+  'Et gavekort til “massage” i en baggård i Ikast', 'Ti fingre. Til røven. Du ved hvorfor.', 'En vibrator uden batterier. Ligesom Rasmus efter kl. 22.',
 ];
 // Øjnenes placering i et 3×3-gitter for hver side
 const OEJNE = { 1: [4], 2: [2, 6], 3: [2, 4, 6], 4: [0, 2, 6, 8], 5: [0, 2, 4, 6, 8], 6: [0, 2, 3, 5, 6, 8] };
@@ -87,7 +88,7 @@ export function startPakkeleg({ gsap, lyd, regn, toast }) {
       seksere++;
       const ledige = pakker.filter((p) => !p.classList.contains('taget'));
       const pakke = ledige[Math.floor(Math.random() * ledige.length)];
-      const indhold = puljen.pop() || 'Endnu flere uldsokker';
+      const indhold = puljen.pop() || 'Endnu en pakke kondomer med sylte-smag';
       pakke.classList.add('taget');
       lyd.fanfare();
       const r = pakke.getBoundingClientRect();

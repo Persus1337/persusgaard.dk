@@ -116,9 +116,9 @@ function bygIndhold() {
     ['<img src="assets/per-logo.png" alt="" width="90" height="90"><p class="rulle__note">En Per Susgaard produktion</p>'],
     ['<p class="rulle__stor guldtekst">Julefrokost 2026</p>'],
     ['Medvirkende', [['Executive Producer', 'Mamma'], ...MEDVIRKENDE.map((p) => [p.rolle, p.navn])]],
-    ['Bag kameraet', [['Instruktør', 'Per Susgaard'], ['Location', 'Gudenåvej 106, Herning'], ['Catering', 'Slagter Lange'], ['Lyddesign', 'En browser'], ['Visuelle effekter', 'Unødvendigt mange'], ['Budget', '3.770 kr']]],
+    ['Bag kameraet', [['Præsenteret af', 'Mammas drenge & Mamma'], ['Instruktør og producer', 'Per Susgaard'], ['Location', 'Gudenåvej 106, Herning'], ['Catering', 'Slagter Lange'], ['Lyddesign', 'En browser'], ['Visuelle effekter', 'Unødvendigt mange'], ['Budget', '3.770 kr']]],
     ['Retterne', [['Silden', 'Sig selv'], ['Frikadellerne', 'Små, hjemmelavede'], ['Sylten', 'Kontroversiel'], ['Grønlangkålen', 'Som salat'], ['Pakkerne', 'Mindst 50 kr stykket']]],
-    ['Tak til', [['Statskassen', 'For 754 kr i moms'], ['Rugbrødet', 'For fundamentet'], ['Dig', 'For at blive siddende']]],
+    ['Tak til', [['Jannick', 'For huset'], ['Andreas’ lever', 'For en heroisk indsats'], ['Bøjgaards tøj', 'For at holde så længe, det gjorde'], ['Statskassen', 'For 754 kr i moms'], ['Dig', 'For at blive siddende']]],
     ['<p class="rulle__note">Ingen sild kom til skade under produktionen af denne hjemmeside. Det kommer de til den 7. november.</p>'],
   ];
   $('#rulle').innerHTML = rulle.map(([a, linjer]) => linjer
@@ -472,12 +472,12 @@ function opsaetNedtaelling() {
 
   $('#kalender').addEventListener('click', () => {
     const ics = [
-      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//persusgaard.dk//Julefrokost 2026//DA', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
-      'BEGIN:VEVENT', 'UID:julefrokost-2026@persusgaard.dk', 'DTSTAMP:20261021T120000Z',
+      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Mammas drenge og Mamma//Julefrokost 2026//DA', 'CALSCALE:GREGORIAN', 'METHOD:PUBLISH',
+      'BEGIN:VEVENT', 'UID:julefrokost-2026-mammas-drenge', 'DTSTAMP:20261021T120000Z',
       'DTSTART:20261107T130000Z', 'DTEND:20261108T010000Z', 'SUMMARY:Julefrokost 2026',
       'LOCATION:Gudenåvej 106\\, 7400 Herning',
-      'DESCRIPTION:Fjorten retter. Elleve gæster. Ingen nåde. Husk en pakke til pakkelegen (50 kr\\, må gerne overskrides). https://persusgaard.dk/julefrokost2026/',
-      'URL:https://persusgaard.dk/julefrokost2026/', 'END:VEVENT', 'END:VCALENDAR',
+      'DESCRIPTION:Fjorten retter. Elleve gæster. Ingen nåde. Husk en pakke til pakkelegen (50 kr\\, må gerne overskrides).',
+      'END:VEVENT', 'END:VCALENDAR',
     ].join('\r\n');
     const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
     const a = Object.assign(document.createElement('a'), { href: url, download: 'julefrokost-2026.ics' });
