@@ -20,7 +20,7 @@ export async function tegnBillet(canvas, navn) {
   ]);
   const ctx = canvas.getContext('2d');
   const W = canvas.width, H = canvas.height, h = hash(navn);
-  const kuvert = (h % 10) + 1, plads = PLADSER[(h >>> 4) % PLADSER.length];
+  const gaest = (h % 11) + 1, plads = PLADSER[(h >>> 4) % PLADSER.length];
   const serie = `JF26-${(h % 1e6).toString().padStart(6, '0')}`;
   const stubX = 1200, hak = 46, r = 28;
 
@@ -96,7 +96,7 @@ export async function tegnBillet(canvas, navn) {
 
   ctx.fillStyle = ink;
   ctx.font = 'italic 400 38px "Cormorant Garamond"';
-  ctx.fillText(`Kuvert ${kuvert} af 10 · ${plads}`, stubX / 2, 580);
+  ctx.fillText(`Gæst ${gaest} af 11 · ${plads}`, stubX / 2, 580);
   ctx.font = '700 22px Cinzel';
   ctx.letterSpacing = '4px';
   ctx.fillStyle = velour;
@@ -108,11 +108,11 @@ export async function tegnBillet(canvas, navn) {
   const sx = stubX + (W - stubX) / 2;
   ctx.font = '700 22px Cinzel';
   ctx.letterSpacing = '6px';
-  ctx.fillText('KUVERT', sx, 120);
+  ctx.fillText('NR.', sx, 120);
   ctx.letterSpacing = '0px';
   ctx.fillStyle = velour;
   ctx.font = '900 150px Cinzel';
-  ctx.fillText(String(kuvert).padStart(2, '0'), sx, 268);
+  ctx.fillText(String(gaest).padStart(2, '0'), sx, 268);
   ctx.fillStyle = ink;
   // Stregkode
   let bx = stubX + 70;

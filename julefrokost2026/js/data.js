@@ -76,7 +76,7 @@ export const RISALAMANDE = {
   stats: [65, 5, 100, 30],
 };
 
-export const REGNSKAB = { kuverter: 10, prisPrKuvert: 342, mad: 3420, fragt: 350, total: 3770, moms: 754, retter: 14 };
+export const REGNSKAB = { personer: 11, mad: 3420, fragt: 350, total: 3770, moms: 754, retter: 14 };
 
 export const STEMNING = [
   ['14:00', 40], ['15:30', 64], ['17:00', 82], ['18:30', 66, 'Syltedippet'],

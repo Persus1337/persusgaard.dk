@@ -1,9 +1,9 @@
-// Pakkelegen: slå en sekser, tag en pakke. Ti pakker på bordet, ingen nåde.
+// Pakkelegen: slå en sekser, tag en pakke. Elleve pakker på bordet, én pr. gæst.
 
-const ANTAL = 10;
+const ANTAL = 11;
 const FARVER = [
   ['#7a0e1a', '#e7b95c'], ['#1f5a35', '#f3e9d2'], ['#1d3f8f', '#fbe6a6'], ['#e7b95c', '#7a0e1a'], ['#f3e9d2', '#b01c2e'],
-  ['#5b1a3a', '#e7b95c'], ['#b01c2e', '#f6f0e4'], ['#2f4a2c', '#e7b95c'], ['#8e5e1e', '#f6f0e4'], ['#0d2a3a', '#e7b95c'],
+  ['#5b1a3a', '#e7b95c'], ['#b01c2e', '#f6f0e4'], ['#2f4a2c', '#e7b95c'], ['#8e5e1e', '#f6f0e4'], ['#0d2a3a', '#e7b95c'], ['#e7b95c', '#1f5a35'],
 ];
 const INDHOLD = [
   'Uldsokker i str. 46', 'Et skrabelod uden gevinst', 'En lille Gammel Dansk', 'Et duftlys med “vinterbær”',

@@ -578,7 +578,8 @@ body.uden-webgl .hero__fallback { display: block; }
 .terning__side--4 { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); }
 .terning__side--5 { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); }
 .terning__side--2 { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); }
-.pakkebord { width: 100%; max-width: 560px; margin-top: 1.6rem; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(.3rem, 2vw, 1rem); }
+.pakkebord { --gab: clamp(.3rem, 2vw, 1rem); width: 100%; max-width: 620px; margin-top: 1.6rem; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gab); }
+.pakke { width: calc((100% - 5 * var(--gab)) / 6); }
 .pakke svg { width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .5)); }
 .vundet { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
 .vundet li {

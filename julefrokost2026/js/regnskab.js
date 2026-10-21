@@ -105,10 +105,11 @@ function tegnDonut(fig) {
   fig.appendChild(leg);
   fig.insertAdjacentHTML('beforeend', `<details><summary>Vis som tabel</summary><table>
     <tr><th>Post</th><th>Beløb</th></tr>
-    <tr><td>10 kuverter à ${kr(REGNSKAB.prisPrKuvert)} kr</td><td>${kr(mad)} kr</td></tr>
+    <tr><td>Maden, 14 retter</td><td>${kr(mad)} kr</td></tr>
     <tr><td>Fragt</td><td>${kr(fragt)} kr</td></tr>
     <tr><td>Total</td><td>${kr(total)} kr</td></tr>
-    <tr><td>Heraf moms</td><td>${kr(REGNSKAB.moms)} kr</td></tr></table></details>`);
+    <tr><td>Heraf moms</td><td>${kr(REGNSKAB.moms)} kr</td></tr>
+    <tr><td>Pr. person, delt på ${REGNSKAB.personer}</td><td>${kr(total / REGNSKAB.personer, 2)} kr</td></tr></table></details>`);
 
   return (gsap) => buer.forEach(({ c, laengde, omkreds: o }, i) => {
     const s = { l: 0 };

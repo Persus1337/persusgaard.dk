@@ -476,7 +476,7 @@ function opsaetNedtaelling() {
       'BEGIN:VEVENT', 'UID:julefrokost-2026@persusgaard.dk', 'DTSTAMP:20261021T120000Z',
       'DTSTART:20261107T130000Z', 'DTEND:20261108T010000Z', 'SUMMARY:Julefrokost 2026',
       'LOCATION:Gudenåvej 106\\, 7400 Herning',
-      'DESCRIPTION:Fjorten retter. Ti kuverter. Ingen nåde. Husk en pakke til pakkelegen (50 kr\\, må gerne overskrides). https://persusgaard.dk/julefrokost2026/',
+      'DESCRIPTION:Fjorten retter. Elleve gæster. Ingen nåde. Husk en pakke til pakkelegen (50 kr\\, må gerne overskrides). https://persusgaard.dk/julefrokost2026/',
       'URL:https://persusgaard.dk/julefrokost2026/', 'END:VEVENT', 'END:VCALENDAR',
     ].join('\r\n');
     const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
